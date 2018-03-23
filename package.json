@@ -8,7 +8,7 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^16.1.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-derequire": "^2.1.0",
     "vinyl-source-stream": "^2.0.0"
   },

@@ -8,13 +8,6 @@ const SRC = './src/';
 const DIST = './dist/';
 
 function buildFile(in_file, out_dir) {
-  var filename = new_filename;
-
-  if(filename === undefined) {
-    var tokens = in_file.split(/\/+/);
-    filename = tokens[tokens.length - 1];
-  }
-
   var filename = path.basename(in_file);
   var name = path.basename(filename, ".js");
 
@@ -26,14 +19,14 @@ function buildFile(in_file, out_dir) {
       .pipe(gulp.dest(out_dir));
 
     stream.on('end', function() {
-      resolve(out_dir+"/"+filename);
+      resolve(path.join(out_dir, filename));
     });
   });
 };
 
 function build() {
   return Promise.all([
-//    buildFile(CLIENT_SRC+'/WarpClient.js', CLIENT_DIST),
+    buildFile(path.join(SRC, 'Seychellizer.js'), DIST),
   ]);
 };
 
